@@ -1,0 +1,60 @@
+<nav class="navbar navbar-light" style="background-color: #90E0EF;">
+    <div class="container-fluid d-flex justify-content-center">
+      <span class="navbar-brand mb-0 h1">Result Management System</span>
+    </div>
+  </nav>
+<div class="container main">
+    <h5>Add new record</h5>
+    <br><br>
+    <div *ngIf="err" class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>Record can't be added</strong>
+        <button (click)="errorhandle()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <label class="form-label">Roll Number</label>    
+        </div>
+        <div class="col">
+            <input type="number" class="form-control" [(ngModel)]="rollnumber" required>            
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-2">
+            <label class="form-label">Name</label>    
+        </div>
+        <div class="col">
+            <input type="text" class="form-control" [(ngModel)]="name" required>            
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-2">
+            <label class="form-label">Date of Birth</label>    
+        </div>
+        <div class="col">
+            <input type="date" class="form-control" [(ngModel)]="dateofbirth" required>            
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-2">
+            <label class="form-label">Score</label>    
+        </div>
+        <div class="col">
+            <input type="number" class="form-control" [(ngModel)]="score" required>            
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-2">
+            <button class="btn btn-primary" (click)="show()">Submit</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-secondary" (click)="clear()">Clear</button> 
+        </div>
+    </div>
+    <br><br><br>
+    <a href="teacher" class="btn btn-primary">Back</a>
+</div>

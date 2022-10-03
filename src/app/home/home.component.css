@@ -1,0 +1,16 @@
+.main{
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.alignrow{
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.alignColumn{
+    text-align: center;
+}

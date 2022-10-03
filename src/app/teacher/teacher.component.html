@@ -1,0 +1,52 @@
+<nav class="navbar navbar-light" style="background-color: #90E0EF;">
+  <div class="container-fluid d-flex justify-content-center">
+    <span class="navbar-brand mb-0 h1">Result Management System</span>
+  </div>
+</nav>
+<div class="container main">
+    <div *ngIf="err" class="alert alert-warning alert-dismissible fade show" role="alert">
+      <strong>Feilds Can't be empty!!!</strong>
+      <button (click)="errorhandle()" type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+
+    <p>Total {{studentcount}} Students.</p>
+
+    <table class="table" >
+        <thead>
+          <tr>
+            <th scope="col">Roll Number</th>
+            <th scope="col">Name</th>
+            <th scope="col">Date of birth</th>
+            <th scope="col">Score</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let i of records">
+          <tr *ngIf="!i.edit; else elseblock">
+            <th scope="row">{{i.rollnumber}}</th>
+            <td >{{i.name}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.score}}</td>
+            <td >
+              <button style="margin: 9px;" class="btn btn-primary" (click)="edit(i.rollnumber)">Edit</button>
+              <button class="btn btn-primary" (click)="delete(i.rollnumber)">Delete</button>
+            </td>
+          </tr>
+
+          <ng-template #elseblock>
+            <tr>
+              <th scope="row">{{i.rollnumber}}</th>
+              <td><input type="text" [(ngModel)]="i.name" class="form-control"></td>
+              <td><input type="date" [(ngModel)]="i.date" class="form-control"></td>
+              <td><input type="number" [(ngModel)]="i.score" class="form-control"></td>
+              <td>
+                <button class="btn btn-primary" (click)="submit(i.rollnumber)">Submit</button>
+              </td>
+            </tr>
+          </ng-template>
+          
+        </tbody>
+      </table>
+      <br><br>
+      <a href="teacher/addrecord" class="btn btn-primary">Add records</a>
+</div>
